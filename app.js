@@ -36,13 +36,52 @@ function completeItem() {
   }
 }
 
+function deleteItem(){
+
+
+console.log("Which item would you like to delete? :");
+let itemToDelete = Number(prompt("▶︎"));
+let newList = [];
+if(isNaN(itemToDelete)){
+  myApp();
+}else if(itemToDelete > todoList.length){
+  myApp();
+}else if(itemToDelete === 0){
+  myApp();
+}else if(!isNaN(itemToDelete)){
+  let index = itemToDelete-1
+      //console.log(index);
+
+      let itemDel = todoList.splice(index, 1);
+      //console.log(itemDel);
+
+      //console.log(todoList);
+      newList.push(todoList)
+    }
+    myApp()
+}
+
+
+// function renderNewList(newList){// helper function for deleteItem(;
+
+//   todoList.push(newList);
+
+// myApp();
+// }
+
+
+function deleteList(){
+  
+}
+
 function exit(){
-    let exitInput = prompt("are you sure you want to EXIT application?\n[Y] for Yes\n[N] for NO\n  ▶︎");
+  console.log("are you sure you want to EXIT application?\n[Y] for Yes\n[N] for NO\n  ▶︎⛔️◀︎")
+    let exitInput = prompt("▶︎");
     let input = exitInput.toLowerCase();
       if (input !== "y") {
        myApp();
       } else if(input === "y"){
-        return console.log("Thankyou for using my list app GOOD BYE!!!!!!");
+        return console.log("Thankyou for using my app GOOD BYE!!!!!!");
       }
 }
 
@@ -66,7 +105,7 @@ function myApp() {
   console.log(headerPrompt);
 
   console.log(
-    "[1] Create a to-do item\n[2] Complete a to-do item\n[3] Exit Application:"
+    "[1] Create a to-do item\n[2] Complete a to-do item\n[3] Delete item\n[4] Delete list\n[5] Exit Application:"
   );
 
   let userChoice = Number(prompt("▶︎"));
@@ -79,6 +118,12 @@ function myApp() {
       completeItem();
       break;
     case 3:
+      deleteItem();
+      break;
+    case 4:
+      deleteList();
+      break;
+    case 5:
       exit();
       break;
     default:
