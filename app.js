@@ -15,22 +15,22 @@ function createListItem() {
 }
 
 function completeItem() {
-  let mark = Number(prompt("Which to-do item would you like to mark complete? ▶︎"));
-  if (isNaN(mark)) {
+  let marked = Number(prompt("Which to-do item would you like to mark complete? ▶︎"));
+  if (isNaN(marked)) {
     myApp();
-  } else if (mark > todoList.length) {
+  } else if (marked > todoList.length) {
     myApp();
-  } else if (mark === 0) {
+  } else if (marked === 0) {
     myApp();
-  } else if (!isNaN(mark)) {
+  } else if (!isNaN(marked)) {
 
     
-    let num = todoList.at(mark-1).slice(0,3)//1.
+    let num = todoList.at(marked-1).slice(0,3)//1.
     let stateCom = "▶︎[Complete]  ✅ "
-    let item = todoList.at(mark-1).slice(20);//▶︎▶︎sdklj◀︎
+    let item = todoList.at(marked-1).slice(20);//▶︎▶︎sdklj◀︎
     let newStr ='';
     newStr += `${num}${stateCom}${item}`
-    todoList.splice(mark-1,1,newStr)
+    todoList.splice(marked-1,1,newStr)
     
     myApp();
   }
@@ -52,9 +52,9 @@ if(isNaN(itemToDelete)){
   let index = itemToDelete-1;
       //console.log(index);
 
-      let itemDel = todoList.splice(index, 1);
+      let itemDel = todoList.splice(index, 1); //delete item
 
-      for(let i = 0; i < todoList.length; i ++){
+      for(let i = 0; i < todoList.length; i ++){///sanitize todoList
         let current = todoList[i];
         let newArr = current.slice(1);
         newList.push(newArr);
