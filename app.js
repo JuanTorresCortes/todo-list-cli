@@ -38,10 +38,10 @@ function completeItem() {
 
 function deleteItem(){
 
-
 console.log("Which item would you like to delete? :");
 let itemToDelete = Number(prompt("▶︎"));
 let newList = [];
+let final = [];
 if(isNaN(itemToDelete)){
   myApp();
 }else if(itemToDelete > todoList.length){
@@ -49,29 +49,33 @@ if(isNaN(itemToDelete)){
 }else if(itemToDelete === 0){
   myApp();
 }else if(!isNaN(itemToDelete)){
-  let index = itemToDelete-1
+  let index = itemToDelete-1;
       //console.log(index);
 
       let itemDel = todoList.splice(index, 1);
-      //console.log(itemDel);
 
-      //console.log(todoList);
-      newList.push(todoList)
+      for(let i = 0; i < todoList.length; i ++){
+        let current = todoList[i];
+        let newArr = current.slice(1);
+        newList.push(newArr);
+      } 
     }
+    
+    for(let i = 0; i < newList.length; i++){
+      let items = newList[i];
+      let itemId = Number([i + 1]) ;
+      let result = `${itemId}${items}`;
+      ///console.log(result)
+      final.push(result);
+    }
+    //console.table(newList);
+    todoList = final;
     myApp()
 }
 
-
-// function renderNewList(newList){// helper function for deleteItem(;
-
-//   todoList.push(newList);
-
-// myApp();
-// }
-
-
 function deleteList(){
-  
+  todoList = [];
+  myApp();
 }
 
 function exit(){

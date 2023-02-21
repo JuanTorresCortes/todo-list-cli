@@ -21,30 +21,41 @@
 
 //function deleteItem(){
 
-const todoList = ['1juan','2neftaliy','3torres','4cortes'];
+// const todoList = ['1juan','2neftaliy','3torres','4cortes'];
 
-    function meaow(){
-    let itemToDelete = 2;
-    let newList = [];
-    if(isNaN(itemToDelete)){
-      myApp();
-    }else if(itemToDelete > todoList.length){
-      myApp();
-    }else if(itemToDelete === 0){
-      myApp();
-    }else if(!isNaN(itemToDelete)){
+//     function meaow(){
+//     let itemToDelete = 2;
+//     let newList = [];
+//     if(isNaN(itemToDelete)){
+//       myApp();
+//     }else if(itemToDelete > todoList.length){
+//       myApp();
+//     }else if(itemToDelete === 0){
+//       myApp();
+//     }else if(!isNaN(itemToDelete)){
 
-      let index = itemToDelete-1
-      //console.log(index);
+//       let index = itemToDelete-1
+//       //console.log(index);
 
-      let itemDel = todoList.splice(index, 1);
-      //console.log(itemDel);
+//       let itemDel = todoList.splice(index, 1);
+//       //console.log(itemDel);
 
-      //console.log(todoList);
-      newList.push(todoList)
-    }
-    return console.log(newList);
+//       //console.log(todoList);
+//       newList.push(todoList)
+//     }
+//     return console.log(newList);
+// }
+// meaow();  
+  
+
+var x = ["X2019","X2020","X2021","X2022"];
+for(let i =0; i < x.length; i++){
+  let current = x[i];
+  //console.log(current);
+  let nue = current.slice(1);
+  console.log(nue)
 }
-meaow();  
-    
+///var y = x.map(s => s.slice(1));
+
+//console.log(y);
     
